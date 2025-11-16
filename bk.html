@@ -1,29 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=м, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вкрадце</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #4a90e2, #e76dfa, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+            color: #333;
+        }
+        @keyframes gradientMove {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .container {
+            max-width: 900px;
+            width: 92%;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(6px);
+        }
+        h2 {
+            border-left: 6px solid #4a90e2;
+            padding-left: 12px;
+            margin-top: 30px;
+            font-size: 1.6rem;
+        }
+        img {
+            border-radius: 15px;
+            display: block;
+            margin: 20px auto;
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            background: #e9f3ff;
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        section {
+            margin-top: 35px;
+            padding: 20px;
+            background: #dbeeff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            color: #444444;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            h2 { font-size: 1.3rem; }
+            .container { padding: 20px; }
+            ul li { font-size: 0.95rem; }
+            footer { font-size: 0.85rem; }
+        }
+    </style>
 </head>
-<BOdy></BOdy>
-   <TItle> vizitka</TItle>
+<body>
+    <div class="container">
+        <h2>О СЕБЕ</h2>
+        <img src="photo.jpg" width="175" height="200" alt="Моё фото" />
+
+        <h2>НАВЫКИ</h2>
+        <ul>
+            <li>Умный</li>
+            <li>Сильный</li>
+            <li>Душевный</li>
+        </ul>
+
+        <h2>ИНТЕРЕСЫ</h2>
+        <ul>
+            <li>Еда</li>
+            <li>Сон</li>
+            <li>Спорт</li>
+        </ul>
+
+        <section>
+            <h2>Контакты</h2>
+            <p>Телефон: +7 707 440 5977</p>
+            <p>Email: gogicom@mail.ru</p>
+        </section>
+
+        <footer>© 2025 Каржауов Бауыржан</footer>
+    </div>
+</body>
 </html>
-<body><H2>
-    О СЕБЕ
-</body></H2>
-</body></H3>
-<img 
-src="C:\Users\admin\Desktop\photo.jpg"
-width="175" height="200"
-alt="my photo"/>
- <h2>НАВЫКИ</h2>
-  1 УМНЫЙ 2 СИЛЬНЫЙ 3 ДУШЕВНЫЙ
-<h2>ИНТЕРЕСЫ</h2>
- 1 ЕДА 2 СОН 3 СПОРТ
- <section>
-  КОНТАКТ
- +7 707 440 5977 
-gogicom@mail.ru
-</section>
-<footer>"© 2025 Каржауов Бауржан"</footer>
 
