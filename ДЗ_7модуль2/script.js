@@ -1,82 +1,66 @@
-
-// Модалки простые
-// const modalOpenBtns = document.querySelectorAll('.open-modal');
-// const modalCloseBtn = document.querySelector('.close-modal')
-
-// const modals = document.querySelectorAll('.modal');
-
-
-// modalCloseBtn.addEventListener('click', () => {
-//   modal.classList.remove('open');
-// });
-
-// modalOpenBtns.forEach((item) => {
-//   item.addEventListener('click', () => {
-//     modals[0].classList.add('open');
-//   });
-// })
-
-
-// Модалки продвинутые
+// ========== Модальные окна ==========
 const openModalButtons = document.querySelectorAll('[data-modal-action="open-modal"]');
 const closeModalButtons = document.querySelectorAll('[data-modal-action="close-modal"]');
 const modalWindows = document.querySelectorAll('[data-modal-action="modal"]');
 
+openModalButtons.forEach(btn => btn.addEventListener('click', (e) => {
+  const modalId = e.target.getAttribute('data-modal');
+  modalWindows.forEach(modal => {
+    if(modal.dataset.modal === modalId) modal.classList.add('open');
+  });
+}));
 
-openModalButtons.forEach((btn) => {
-  btn.addEventListener('click', openModal);
+closeModalButtons.forEach(btn => btn.addEventListener('click', (e) => {
+  const modalId = e.target.getAttribute('data-modal');
+  modalWindows.forEach(modal => {
+    if(modal.dataset.modal === modalId) modal.classList.remove('open');
+  });
+}));
+
+modalWindows.forEach(modal => {
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) modal.classList.remove('open');
+  });
 });
 
-closeModalButtons.forEach((btn) => {
-  btn.addEventListener('click', closeModal);
-});
-
-
-function openModal(event) {
-  modalWindows.forEach((modal) => {
-    if (modal.getAttribute('data-modal') === event.target.getAttribute('data-modal')) {
-      modal.classList.add('open')
-    }
-  });
-}
-
-function closeModal(event) {
-  modalWindows.forEach((modal) => {
-    if (modal.getAttribute('data-modal') === event.target.getAttribute('data-modal')) {
-      modal.classList.remove('open')
-    }
-  });
-}
-
-// Аккордионы
-
+// ========== Аккордеоны ==========
 const accordions = document.querySelectorAll('.accordion__container');
 
 function toggleAccordion(event) {
-  const accordionContainer = event.target.closest('[accordion-type]') ?? event.target.closest('.accordion__container');
-  const accordionType = event.target.closest('[accordion-type]')?.getAttribute('accordion-type') ?? 'multi';
-  const isAccordionHeader = event.target.classList.contains('accordion__header');
+  const header = event.target.closest('.accordion__header');
+  if (!header) return;
 
+  const block = header.closest('.accordion__block');
+  const container = header.closest('.accordion__container');
+  const type = container.getAttribute('accordion-type') || 'multi';
+  const content = block.querySelector('.accordion__content');
+  const state = block.getAttribute('accordion-state');
 
-  if (isAccordionHeader) {
-    const parentElement = event.target.closest('[accordion-id]');
-    const accordionState = parentElement.getAttribute('accordion-state');
+  if (type === 'single') {
+    container.querySelectorAll('.accordion__block').forEach(b => {
+      if (b !== block) {
+        b.setAttribute('accordion-state', 'closed');
+        b.querySelector('.accordion__content').style.maxHeight = null;
+      }
+    });
+  }
 
-    if (accordionType === 'single') {
-      const accordions = accordionContainer.querySelectorAll('[accordion-id]');
-      accordions.forEach((item) => {
-        item.setAttribute('accordion-state', 'closed')
-      })
-    }
-
-    if (accordionState === 'closed') {
-      parentElement.setAttribute('accordion-state', 'open')
-    } else {
-      parentElement.setAttribute('accordion-state', 'closed')
-    }
+  if (state === 'closed') {
+    block.setAttribute('accordion-state', 'open');
+    content.style.maxHeight = content.scrollHeight + 'px';
+  } else {
+    block.setAttribute('accordion-state', 'closed');
+    content.style.maxHeight = null;
   }
 }
 
-accordions.forEach((accordion) => {
-  accordion.addEventListener('click', toggleAccordion)
-})
+// Инициализация высоты при загрузке
+accordions.forEach(container => {
+  container.querySelectorAll('.accordion__block').forEach(block => {
+    const content = block.querySelector('.accordion__content');
+    if(block.getAttribute('accordion-state') === 'open') {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+  });
+  container.addEventListener('click', toggleAccordion);
+});
