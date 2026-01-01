@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Задачи #1-12</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1rem; }
+    h1 { margin-bottom: 1rem; }
+    section { margin-bottom: 2rem; padding: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+    button { margin: 0.25rem 0; padding: 0.3rem 0.6rem; cursor: pointer; }
+    input { margin: 0.25rem 0; padding: 0.3rem; width: 50px; }
+    .output { margin-top: 0.5rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>JS Задачи #1-12</h1>
+
+<section>
+  <h2>1. Обмен значений переменных</h2>
+  <button id="swapBtn">Поменять a & b</button>
+  <div class="output" id="swapOutput"></div>
+</section>
+
+<section>
+  <h2>2. Проверка чётного числа</h2>
+  <input type="number" id="evenInput" value="4">
+  <button id="evenBtn">Проверить</button>
+  <div class="output" id="evenOutput"></div>
+</section>
+
+<section>
+  <h2>3. Сумма чисел от 1 до N</h2>
+  <input type="number" id="sumInput" value="5">
+  <button id="sumBtn">Сумма</button>
+  <div class="output" id="sumOutput"></div>
+</section>
+
+<section>
+  <h2>4. Переворот строки</h2>
+  <input type="text" id="reverseInput" value="hello">
+  <button id="reverseBtn">Перевернуть</button>
+  <div class="output" id="reverseOutput"></div>
+</section>
+
+<section>
+  <h2>5. Фильтрация массива по чётным числам</h2>
+  <button id="filterBtn">Фильтровать [1,2,3,4,5]</button>
+  <div class="output" id="filterOutput"></div>
+</section>
+
+<section>
+  <h2>6. Конвертер температуры</h2>
+  <input type="number" id="celsiusInput" value="0">
+  <button id="cToFBtn">C → F</button>
+  <div class="output" id="cToFOutput"></div>
+  <input type="number" id="fahrenheitInput" value="32">
+  <button id="fToCBtn">F → C</button>
+  <div class="output" id="fToCOutput"></div>
+</section>
+
+<section>
+  <h2>7. Проверка строки на палиндром</h2>
+  <input type="text" id="palindromeInput" value="Race car">
+  <button id="palindromeBtn">Проверить</button>
+  <div class="output" id="palindromeOutput"></div>
+</section>
+
+<section>
+  <h2>8. Сумма элементов массива</h2>
+  <button id="sumArrayBtn">Сумма [1,2,3,4]</button>
+  <div class="output" id="sumArrayOutput"></div>
+</section>
+
+<section>
+  <h2>9. Самое длинное слово в массиве</h2>
+  <button id="longestBtn">Найти в ["apple","banana","kiwi"]</button>
+  <div class="output" id="longestOutput"></div>
+</section>
+
+<section>
+  <h2>10. Количество свойств объекта</h2>
+  <button id="countPropsBtn">Посчитать {a:1,b:2,c:3}</button>
+  <div class="output" id="countPropsOutput"></div>
+</section>
+
+<section>
+  <h2>11. Вывести числа от 1 до N (консоль)</h2>
+  <input type="number" id="printInput" value="5">
+  <button id="printBtn">Вывести</button>
+  <div class="output">Смотрите консоль браузера</div>
+</section>
+
+<section>
+  <h2>12. Найти число в массиве вручную</h2>
+  <button id="findBtn">Найти 2 в [1,2,3]</button>
+  <div class="output" id="findOutput"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
